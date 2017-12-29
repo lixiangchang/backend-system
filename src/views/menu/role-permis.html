@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <title>角色权限</title>
+  <link href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/menu.css">
+</head>
+
+<body>
+  <div class="container-fluid pl30 pr30">
+    <!-- 顶部tab切换 -->
+    <div class="row mt10 group-name">
+      <button class="btn butn btn-success addGroup f16" type="button">新增组</button>
+      <button class="btn butn btn-primary ml20 tab f16">
+        <i class="ion-ios-monitor vm"></i>
+        <span>系统管理员</span>
+      </button>
+      <button class="btn butn btn-secondary  ml20 tab f16">
+        <i class="ion-ios-monitor vm"></i>
+        <span>会员组</span>
+      </button>
+    </div>
+    <!-- 顶部操作 -->
+    <div class="row mt10">
+      <div class="btn f14 ">本组：</div>
+      <button class="btn btn-info ml15 f14 re-group-name">修改组名称</button>
+      <button class="btn btn-warning text-white ml15 f14 group-permis">组菜单权限</button>
+    </div>
+    <div class="row mt10">
+      <table class="table table-hover table-bordered tc table-td-p f14 g6">
+        <thead>
+          <tr>
+            <th class="w70">序号</th>
+            <th>角色</th>
+            <th>增</th>
+            <th>删</th>
+            <th>改</th>
+            <th>查</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="role-name">后台管理员</td>
+            <td class="w70">
+              <button class="btn btn-warning add-permis">
+                <i class="ion-wrench text-white"></i>
+              </button>
+            </td>
+            <td class="w70">
+              <button class="btn btn-warning remove-permis">
+                <i class="ion-wrench text-white"></i>
+              </button>
+            </td>
+            <td class="w70">
+              <button class="btn btn-warning re-permis">
+                <i class="ion-wrench text-white"></i>
+              </button>
+            </td>
+            <td class="w70">
+              <button class="btn btn-warning look-permis">
+                <i class="ion-wrench text-white"></i>
+              </button>
+            </td>
+            <td class="w300">
+              <button type="button" class="btn butn btn-warning text-white poi menu-permis">
+                菜单权限
+              </button>
+              <button type="button" class="btn butn btn-primary edit poi">
+                <i class="ion-android-create"></i>
+              </button>
+              <button type="button" class="btn butn btn-danger delete poi">
+                <i class="ion-trash-a "></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- 后退按钮 -->
+    <div class="row">
+      <button class="btn butn btn-success f14 addRole">新增角色</button>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.13.0/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="/scripts/main.js"></script>
+
+  <script>
+    //编辑
+    $(".edit").on("click", function () {
+      let roleName = $(this).parent().parent().children(".role-name").text();
+      layer.prompt({
+        title: '编辑',
+        value: roleName
+      }, (value, index, elem) => {
+        layer.close(index);
+        $(".role-name").text(value)
+      });
+    })
+    //新增组
+    $(".addGroup").on("click", () => {
+      layer.prompt({
+        title: '新增组'
+      }, (value, index, elem) => {
+        layer.close(index);
+      });
+    })
+    //新增角色
+    $(".addRole").on("click", () => {
+      layer.prompt({
+        title: '新增角色'
+      }, (value, index, elem) => {
+        layer.close(index);
+      });
+    })
+    // 修改组名
+    $(".re-group-name").on("click", () => {
+      let groupName = $(".group-name .btn-primary span").html();
+      layer.prompt({
+        title: '修改组名',
+        value: groupName
+      }, (value, index, elem) => {
+        layer.close(index);
+      });
+    })
+    //TAB切换
+    $(".tab").on("click", function () {
+      $(this).addClass("btn-primary").removeClass("btn-secondary").siblings().removeClass("btn-primary").addClass("btn-secondary")
+    })
+    //组菜单权限
+    $(".group-permis").on("click", () => {
+      layer.open({
+        type: 2,
+        area: ['300px', '450px'],
+        fixed: false, //不固定
+        maxmin: true,
+        title: '组菜单权限',
+        content: './menu-tree.html'
+      });
+    })
+    //增加权限
+    $(".add-permis").on("click", () => {
+      layer.open({
+        type: 2,
+        area: ['300px', '450px'],
+        fixed: false, //不固定
+        maxmin: true,
+        title: '增加',
+        content: './menu-tree.html'
+      });
+    })
+    //删除权限
+    $(".remove-permis").on("click", () => {
+      layer.open({
+        type: 2,
+        area: ['300px', '450px'],
+        fixed: false, //不固定
+        maxmin: true,
+        title: '删除',
+        content: './menu-tree.html'
+      });
+    })
+    //修改权限
+    $(".re-permis").on("click", () => {
+      layer.open({
+        type: 2,
+        area: ['300px', '450px'],
+        fixed: false, //不固定
+        maxmin: true,
+        title: '修改',
+        content: './menu-tree.html'
+      });
+    })
+    //查看权限
+    $(".look-permis").on("click", () => {
+      layer.open({
+        type: 2,
+        area: ['300px', '450px'],
+        fixed: false, //不固定
+        maxmin: true,
+        title: '查看',
+        content: './menu-tree.html'
+      });
+    })
+    //菜单权限
+    $(".menu-permis").on("click", () => {
+      layer.open({
+        type: 2,
+        area: ['300px', '450px'],
+        fixed: false, //不固定
+        maxmin: true,
+        title: '菜单权限',
+        content: './menu-tree.html'
+      });
+    })
+  </script>
+</body>
+
+</html>

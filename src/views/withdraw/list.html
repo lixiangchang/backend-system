@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html id="home" lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <title>提现申请列表</title>
+  <link href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/verified.css">
+</head>
+
+<body>
+  <div class="verified">
+    <!-- 搜索 -->
+    <div class="f0 search-form">
+      <div class="dib vm search-form__select">
+        <!-- <input type="text" class="form-control" placeholder="请输入关键字"> -->
+        <select class="form-control f14">
+          <option value="">请选择审核状态</option>
+          <option value="">未审核</option>
+          <option value="">已审核</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary ml20 poi">
+        <i class="ion-search"></i>
+      </button>
+    </div>
+    <table class="table table-bordered mt20 vm" border="0">
+      <thead class="g6 f14 tc">
+        <tr>
+          <th class="w50">
+            <input class="checkbox-select-all" id="checkbox-parent" name="" type="checkbox">
+          </th>
+          <th class="w70">
+            <div class="ell">排序</div>
+          </th>
+          <th class="w70">
+            <div class="ell">ID</div>
+          </th>
+          <th class="w100">
+            <div class="ell">用户ID</div>
+          </th>
+          <th class="w140">
+            <div class="ell">姓名</div>
+          </th>
+          <th class="w200">
+            <div class="ell">提现金额</div>
+          </th>
+          <th class="w100">
+            <div class="ell">手续费</div>
+          </th>
+          <th class="w140">
+            <div class="ell">提现方式</div>
+          </th>
+          <th class="w140">
+            <div class="ell">银行卡/支付宝</div>
+          </th>
+          <th class="w140">
+            <div class="ell">银行名称</div>
+          </th>
+          <th class="w140">
+            <div class="ell">申请日期</div>
+          </th>
+          <th class="w100">
+            <div class="ell">操作人ID</div>
+          </th>
+          <th class="w100">
+            <div class="ell">操作</div>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="tc g6 f14">
+        <tr>
+          <td>
+            <input class="checkbox-select" name="" type="checkbox">
+          </td>
+          <td>1</td>
+          <td>46</td>
+          <td>164</td>
+          <td>王贺伟</td>
+          <td>9974.00</td>
+          <td>25.00</td>
+          <td>银行卡</td>
+          <td>6228480018840913679</td>
+          <td>中国农业银行</td>
+          <td>2017-12-26 15:00:07</td>
+          <td></td>
+          <td>
+            <a class="ion-compose f20 g6 btn-change" href="javascript:;" title="修改"></a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+    <div class="dt pct100">
+      <div class="l">
+        <button type="button" class="btn btn-success f14" onclick="adopt()">批量通过</button>
+      </div>
+      <div class="r">
+        <!-- 分页 -->
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">上一页</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">下一页</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- layer HTML -->
+  <div class="dn layerHtml">
+    <div class="p20">
+      <textarea class="pct100 border" name="" id="" cols="30" rows="6" placeholder="请输入拒绝提现申请原因"></textarea>
+      <div class="mt20 tr">
+        <button type="button" class="btn btn-primary">提交</button>
+      </div>
+    </div>
+
+  </div>
+  <!-- bootstrap script -->
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.13.0/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="/scripts/main.js"></script>
+  <script>
+    // 修改
+    $('.btn-change').on('click', function () {
+      layer.open({
+        type: 1,
+        skin: 'layui-layer-rim', //加上边框
+        area: ['600px', '400px'], //宽高
+        content: $('.layerHtml').html()
+      });
+    })
+
+    function adopt() {
+      layer.closeAll();
+      var $items = $('.checkbox-select:checked')
+      if (!$items.length) {
+        layer.msg('请选择操作列表！', { time: 1000 });
+      } else {
+        // 操作
+      }
+
+    }
+  </script>
+</body>
+
+</html>

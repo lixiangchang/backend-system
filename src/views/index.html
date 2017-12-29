@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html id="home" lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <title>首页</title>
+  <link href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/layout.css">
+</head>
+
+<body>
+  <!-- 头部 -->
+  <header id="navbar" class="bg-light f0">
+    <div class="con-vm pct50 dib vm f16">
+      <a class="logo dib vm tc" href="#">Logo</a>
+      <a class="dib vm ion-navicon-round f30 lh0 mr20 btn-open-menu" href="javascript:;"></a>
+    </div>
+    <div class="nav pct50 dib vm f0 tr">
+      <div class="nav-item dib vm">
+        <a class="nav-divnk f16" href="#">
+          <em class="n user__name">abcdef</em>
+          <span class="ion-person f24 lh0"></span>
+        </a>
+      </div>
+      <div class="nav-item dib vm">
+        <a class="nav-divnk ion-ios-cog f24 lh0" href="#"></a>
+      </div>
+      <div class="nav-item dib vm">
+        <a class="nav-divnk ion-ios-bell f24 lh0" href="#"></a>
+      </div>
+    </div>
+  </header>
+  <!-- container -->
+  <div id="container">
+    <div class="main-nav bg-light">
+      <ul class="nav-list" id="exampleAccordion">
+        <li class="nav-item">
+          <a class="g6" href="#">
+            <i class="ion-home f16 dib vm"></i>
+            <span class="ml10 f14 dib vm">后台首页</span>
+          </a>
+        </li>
+        <!--  用户管理 -->
+        <li class="nav-item">
+          <a class="g6">
+            <i class="ion-person-stalker f16 dib vm"></i>
+            <span class="ml10 f14 dib vm">用户管理</span>
+            <i class="arrow ion-ios-arrow-down f16"></i>
+          </a>
+          <ul class="nav-list collapse">
+            <li class="nav-item">
+              <a class="g6 btn-set-menu" href="./user/system-user.html">
+                <span class="f12 dib vm">系统用户</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="g6 btn-set-menu" href="./user/mb-mamt.html">
+                <span class="f12 dib vm">会员管理</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!--  系统管理 -->
+        <li class="nav-item">
+          <a class="g6">
+            <i class="ion-ios-monitor f16 dib vm"></i>
+            <span class="ml10 f14 dib vm">系统管理</span>
+            <i class="arrow ion-ios-arrow-down f16"></i>
+          </a>
+          <ul class="nav-list collapse">
+            <li class="nav-item">
+              <a class="g6 btn-set-menu" href="./menu/buttom-mamt.html">
+                <span class="f12 dib vm">按钮管理</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="g6 btn-set-menu" href="./menu/menu-mamt.html">
+                <span class="f12 dib vm">菜单管理</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="g6 btn-set-menu" href="./menu/role-permis.html">
+                <span class="f12 dib vm">角色权限</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="g6 btn-set-menu" href="./menu/btn-permis.html">
+                <span class="f12 dib vm">按钮权限</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!--  实名认证管理 -->
+        <li class="nav-item">
+          <a class="g6">
+            <i class="ion-ribbon-a f16 dib vm"></i>
+            <span class="ml10 f14 dib vm">实名认证管理</span>
+            <i class="arrow ion-ios-arrow-down f16"></i>
+          </a>
+          <ul class="nav-list collapse">
+            <li class="nav-item">
+              <a class="g6 btn-set-menu" href="./verified/list.html">
+                <span class="f12 dib vm">实名认证列表</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- 版本管理 -->
+        <li class="nav-item">
+          <a class="g6">
+            <i class="ion-ribbon-a f16 dib vm"></i>
+            <span class="ml10 f14 dib vm">版本管理</span>
+            <i class="arrow ion-ios-arrow-down f16"></i>
+          </a>
+          <ul class="nav-list collapse">
+            <li class="nav-item">
+              <a class="g6 btn-set-menu" href="./version/version-list.html">
+                <span class="f12 dib vm">版本列表</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- 提现管理 -->
+        <li class="nav-item">
+          <a class="g6">
+            <i class="ion-ribbon-a f16 dib vm"></i>
+            <span class="ml10 f14 dib vm">提现管理</span>
+            <i class="arrow ion-ios-arrow-down f16"></i>
+          </a>
+          <ul class="nav-list collapse">
+            <li class="nav-item">
+              <a class="g6 btn-set-menu" href="./withdraw/list.html">
+                <span class="f12 dib vm">提现申请列表</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="main-content ovh">
+      <div id="tab-menu">
+        <button type="button" class="btn btn-primary">
+          <span class="dib vm">首页</span>
+          <span class="dib vm icon-delete ion-ios-close-outline"></span>
+        </button>
+      </div>
+      <div class="main-iframe">
+        <iframe class="iframes active" width="100%" height="100%" src="./menu/menu-mamt.html" frameborder="0"></iframe>
+      </div>
+    </div>
+  </div>
+  <!-- bootstrap script -->
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.13.0/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="/scripts/main.js"></script>
+  <script src="/scripts/nav-iframe.js"></script>
+</body>
+
+</html>

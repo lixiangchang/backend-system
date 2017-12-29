@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <title>菜单管理/用户管理</title>
+  <link href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/menu.css">
+</head>
+
+<body>
+  <div class="container-fluid pl30 pr30">
+    <div class="row">
+      <table class="table table-hover table-bordered tc table-td-p f14 g6">
+        <thead>
+          <tr>
+            <th class="w100">序号</th>
+            <th class="pct30">名称</th>
+            <th>资源路径</th>
+            <th class="w100">状态</th>
+            <th class="pct15">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>
+              <i class="ion-person f20"></i>
+              <a href="./noData.html">系统用户</a>
+            </td>
+            <td class="tl pt6 pb6 pdl10">user/listUsers.do</td>
+            <td>
+              <i class="ion-ios-eye f20"></i>
+            </td>
+            <td>
+              <button type="button" class="btn butn btn-primary edit poi">
+                <i class="ion-android-create f20"></i>
+              </button>
+              <button type="button" class="btn butn btn-danger delete poi">
+                <i class="ion-trash-a f20"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>
+              <i class="ion-person f20"></i>
+              <a href="./noData.html">会员管理</a>
+            </td>
+            <td class="tl pt6 pb6 pdl10">fruitUser/listFruitUsers.do</td>
+            <td>
+              <i class="ion-ios-eye f20"></i>
+            </td>
+            <td>
+              <button type="button" class="btn butn btn-primary edit poi">
+                <i class="ion-android-create f20"></i>
+              </button>
+              <button type="button" class="btn butn btn-danger delete poi">
+                <i class="ion-trash-a f20"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- 后退按钮 -->
+    <div class="row">
+      <button class="btn butn btn-outline-secondary return f14">返回</button>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.13.0/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="/scripts/main.js"></script>
+
+  <script>
+    //编辑
+    $(".edit").on("click", function () {
+      $(this).blur();
+      let useName = $(this).parent().siblings().children(".useName").text();
+      let order = $(this).parent().siblings(".order").text();
+      let fullName = $(this).parent().siblings(".fullName").text();
+      let email = $(this).parent().siblings(".email").text();
+      layer.open({
+        type: 1,
+        resize: false,
+        fixed: false,
+        maxmin: true,
+        title: '编辑',
+        area: ['700px', '390px'], //宽高
+        content: `<table class="table table-td-p addUser-table g6">
+    <thead></thead>
+    <tbody>
+      <tr>
+        <td class="tr">角色：</td>
+        <td>
+          <select class="custom-select w190">
+            <option selected>请选择角色</option>
+            <option value="后台管理员">后台管理员</option>
+          </select>
+        </td>
+        <td class="tr">用户名：</td>
+        <td>
+          <input type="text" class="form-control ipt" placeholder="请输入用户名" value="${useName}">
+        </td>
+      </tr>
+      <tr>
+        <td class="tr">编号：</td>
+        <td>
+          <input type="text" class="form-control ipt" placeholder="请输入编号" value="${order}">
+        </td>
+        <td class="tr">邮箱：</td>
+        <td>
+          <input type="email" class="form-control ipt" placeholder="请输入邮箱" value="${email}">
+        </td>
+      </tr>
+      <tr>
+        <td class="tr">密码：</td>
+        <td>
+          <input type="password" class="form-control ipt" placeholder="请输入密码">
+        </td>
+        <td class="tr">确认密码：</td>
+        <td>
+          <input type="password" class="form-control ipt" placeholder="请再次输入密码">
+        </td>
+      </tr>
+      <tr>
+        <td class="tr">姓名：</td>
+        <td>
+          <input type="text" class="form-control ipt" placeholder="请输入姓名" value="${fullName}">
+        </td>
+        <td class="tr">手机号：</td>
+        <td>
+          <input type="phone" class="form-control ipt" placeholder="请输入手机号" value="15613099294">
+        </td>
+      </tr>
+      <tr>
+        <td class="tr">备注：</td>
+        <td colspan="3">
+          <input type="text" class="form-control w500" placeholder="请输入备注" value="123">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4" class="tc">
+          <button type="submit" class="btn btn-info">保存</button>
+          <button type="button" class="btn btn-lingt cancel ml15">取消</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>`
+      });
+      $(".cancel").on("click", () => {
+        layer.close(layer.index);
+      })
+    })
+  </script>
+</body>
+
+</html>

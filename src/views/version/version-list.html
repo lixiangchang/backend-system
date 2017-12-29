@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <title>系统用户</title>
+  <link href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/user.css">
+</head>
+
+<body>
+  <div class="container-fluid pl30 pr30">
+    <!-- 搜索 -->
+    <div class="row mt10">
+      <div class="input-group w190">
+        <input type="text" class="form-control w-50 f14" placeholder="请输入版本号">
+      </div>
+      <button type="button" class="btn butn btn-primary ml20 poi">
+        <i class="ion-search"></i>
+      </button>
+    </div>
+    <div class="row mt15">
+      <table class="table table-hover table-bordered tc table-td-p f14 g6">
+        <thead>
+          <tr>
+            <th class="w70">排序</th>
+            <th class="w50">ID</th>
+            <th class="w100">app版本名</th>
+            <th class="w100">app版本号</th>
+            <th class="w100">app描述</th>
+            <th>app下载地址</th>
+            <th class="w100">二维码</th>
+            <th class="w100">日期</th>
+            <th class="w100">类型</th>
+            <th class="w100">是否强推</th>
+            <th class="w70">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="order">1</td>
+            <td class="Id">16</td>
+            <td class="appName">1.1</td>
+            <td class="appNum">1</td>
+            <td class="appDescribe">542352</td>
+            <td class="address">http://fruit-picture.oss-cn-beijing.aliyuncs.com/fruit/apk/Android/5425/fruit.apk@qq.com</td>
+            <td>
+              <img width="50px" height="50px" alt="二维码">
+            </td>
+            <td class="data">2017-11-28 13:46:26</td>
+            <td class="type">Android</td>
+            <td class="isPush">否</td>
+            <td>
+              <button type="button" class="btn butn btn-danger delete poi">
+                <i class="ion-trash-a "></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td class="order">2</td>
+            <td class="Id">15</td>
+            <td class="appName">99</td>
+            <td class="appNum">99</td>
+            <td class="appDescribe">99999</td>
+            <td class="address">www.baidu.com</td>
+            <td>
+              <img width="50px" height="50px" alt="二维码">
+            </td>
+            <td class="data">2017-11-28 11:53:54</td>
+            <td class="type">IOS</td>
+            <td class="isPush">否</td>
+            <td>
+              <button type="button" class="btn butn btn-danger delete poi">
+                <i class="ion-trash-a "></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <!-- 新增，全部删除 -->
+      <div class="w-50">
+        <button type="button" class="btn btn-success mr20 poi addUser">新增</button>
+      </div>
+      <!-- 分页 -->
+      <div class="w-50 ">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-end">
+            <li class="page-item">
+              <a class="page-link" href="#" disabled>上一页</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">下一页</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.13.0/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="/scripts/main.js"></script>
+  <script src="/scripts/laydate/dist/laydate.js"></script>
+  <script>
+    //新增
+    $(".addUser").on("click", function () {
+      $(this).blur();
+      layer.open({
+        type: 1,
+        resize: false,
+        fixed: false,
+        maxmin: true,
+        title: '新增',
+        area: ['700px', '620px'], //宽高
+        content: `<table class="table table-vm g6">
+    <thead></thead>
+    <tbody>
+      <tr>
+        <td class="tr">app版本名:</td>
+        <td>
+          <input type="text" class="form-control" placeholder="请输入app版本名">
+        </td>
+      </tr>
+      <tr>
+        <td class="tr">app版本号:</td>
+        <td>
+          <input type="text" class="form-control" placeholder="请输入app版本号">
+        </td>
+      </tr>
+      <tr>
+        <td class="tr">app描述:</td>
+        <td>
+          <textarea class="form-control" cols="60" rows="3"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td class="tr">app下载地址:</td>
+        <td>
+          <label class="mb1 vm"><input class="upload" type="checkbox">上传</label>
+          <input type="text" class="form-control pct90 dib upAddress" placeholder="app下载地址，点击复选框上传下载地址">
+          <button class="btn btn-success dn upImg" type="file">上传图片</button>
+          <input class="file dn" type="file" onchange="preview(this)" accept="image/*">
+          <div class="w100 imgCode"></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="tr">日期：</td>
+        <td>
+          <input type="text" class="form-control" id="test1" placeholder="yyyy-MM-dd" title="日期">
+        </td>
+      </tr>
+      <tr>
+        <td class="tr">类型：</td>
+        <td>
+          <select class="form-control">
+            <option>ios</option>
+            <option>Android</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td class="tr">是否强推：</td>
+        <td>
+          <label class="mb1 vm"><input type="radio" name="isPush">是</label>
+          <label class="pl20 mb1 vm"><input type="radio" name="isPush" checked>否</label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4" class="tc">
+          <button type="submit" class="btn btn-info">保存</button>
+          <button type="button" class="btn btn-lingt cancel ml15">取消</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>`
+      });
+      $(".cancel").on("click", () => {
+        layer.close(layer.index);
+      });
+      laydate.render({
+        elem: '#test1'
+      });
+      $(".upload").on("click", function () {
+        if ($(this).prop("checked")) {
+          $(".upAddress").css("display", "none");
+          $(".upImg").css("display", "inline-block")
+        } else {
+          $(".upAddress").css("display", "inline-block");
+          $(".upImg").css("display", "none");
+        };
+      });
+      $(".upImg").click(() => {
+        $(".file").click();
+      })
+    })
+    //上传图片
+    function preview(file) {
+      if (file.files && file.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (evt) {
+          $(".imgCode").html('<img class="mt20" src="' + evt.target.result + '" width="100px" height="100px"/>');
+        }
+        reader.readAsDataURL(file.files[0]);
+      }
+      else {
+        $(".imgCode").html('<div class="img" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src=\'' + file.value + '\'"></div>');
+      }
+    }
+  </script>
+</body>
+
+</html>

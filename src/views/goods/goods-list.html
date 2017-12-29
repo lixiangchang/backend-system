@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="email=no" />
+  <title>商品列表</title>
+  <link href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/system-user.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!-- 搜索 -->
+    <div class="row">
+      <div class="input-group w190">
+        <input type="text" class="form-control w-50" placeholder="请输入商品名称" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <button type="button" class="btn btn-primary ml20 poi">
+        <i class="ion-search"></i>
+      </button>
+    </div>
+    <div class="row">
+      <table class="table table-hover g6 table-bordered">
+        <thead>
+          <tr>
+            <td>
+              <input class="checkbox-select-all" id="checkbox-parent" type="checkbox">
+            </td>
+            <td>排序</td>
+            <td>ID</td>
+            <td>商品标题</td>
+            <td>操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input class="checkbox-select" type="checkbox">
+            </td>
+            <td>1</td>
+            <td>1</td>
+            <td>火龙果</td>
+            <td>
+              <button type="button" class="btn btn-danger delete poi">
+                <i class="ion-trash-a"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <!-- 新增，全部删除 -->
+      <div class="w-50">
+        <button type="button" class="btn btn-success mr20 poi addUser">新增</button>
+        <button type="button" class="btn btn-danger poi deleteAll">
+          <i class="ion-trash-a"></i>
+        </button>
+      </div>
+      <!-- 分页 -->
+      <div class="w-50 ">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-end">
+            <li class="page-item">
+              <a class="page-link" href="#" disabled>上一页</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">下一页</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.13.0/umd/popper.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  <script src="/scripts/main.js"></script>
+  <script>
+    //删除
+    $(".delete").on("click", () => {
+      layer.confirm('确定要删除吗？', {
+        btn: ['确定', '取消'] //按钮
+      }, () => {
+        layer.msg('已删除', { icon: 1 });
+      });
+    })
+    //新增
+    $(".addUser").on("click", () => {
+      layer.open({
+        type: 2,
+        area: ['800px', '370px'],
+        fixed: false, //不固定
+        maxmin: true,
+        title: '新增',
+        content: ''
+      });
+    })
+    //选中删除
+    $(".deleteAll").on("click", () => {
+      layer.confirm('确定要删除吗？', {
+        btn: ['确定', '取消'] //按钮
+      }, () => {
+        layer.msg('已删除', { icon: 1 });
+      });
+    })
+    //用户资料
+    $(".useName").on("click", () => {
+      layer.open({
+        type: 2,
+        area: ['800px', '500px'],
+        fixed: false, //不固定
+        maxmin: true,
+        title: '用户资料',
+        content: ''
+      });
+    })
+  </script>
+</body>
+
+</html>
